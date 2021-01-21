@@ -32,17 +32,9 @@ class Participant
     puts ''
   end
 
-  def show_card(card)
-    puts "----------"
-    puts card.face.center(10)
-    puts "of".center(10)
-    puts card.suit.center(10)
-    puts "----------"
-  end
-
   def show_hand
     puts "#{name}'s Hand:"
-    hand.each { |card| show_card(card) }
+    hand.each { |card| card.display }
     puts ''
   end
 
@@ -110,7 +102,7 @@ class Dealer < Participant
     puts "Face".center(10)
     puts "Down".center(10)
     puts "---------"
-    showing.each { |card| show_card(card) }
+    showing.each { |card| card.display }
     puts ''
   end
 
@@ -162,6 +154,14 @@ class Card
     else
       value
     end
+  end
+
+  def display
+    puts "----------"
+    puts face.center(10)
+    puts "of".center(10)
+    puts suit.center(10)
+    puts "----------"
   end
 end
 
